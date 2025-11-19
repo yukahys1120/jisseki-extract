@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:has-ltd.co.jp)",
+      "WebFetch(domain:www.kyoritsu.info)",
+      "WebFetch(domain:www.kj-exp.com)",
+      "WebFetch(domain:bluebaton.co.jp)",
+      "WebFetch(domain:www.karitsu.co.jp)",
+      "Bash(where.exe:*)",
+      "Bash(claude mcp list:*)",
+      "Bash(uvx --from git+https://github.com/oraios/serena serena-mcp-server:*)",
+      "Bash(npx create-next-app@14:*)",
+      "Bash(npm install)",
+      "Bash(npm run build:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev)",
+      "Bash(curl:*)",
+      "Bash(cat:*)",
+      "Bash(taskkill:*)",
+      "Bash(env)",
+      "Bash(unset:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
