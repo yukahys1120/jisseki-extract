@@ -204,8 +204,7 @@ jisseki-extract/
 ├── 📄 README.md                 # プロジェクト概要・クイックスタート
 │
 ├── 📄 .gitignore                # Git除外設定
-├── 📄 .env.local                # 環境変数（Git除外）
-└── 📄 .env.example              # 環境変数テンプレート（Gitコミット）
+└── 📄 .env                      # 環境変数（Git除外）
 
 （自動生成ディレクトリ）
 ├── node_modules/                # npm依存関係（Git除外）
@@ -395,18 +394,9 @@ try {
 
 ### 6.2 設定方法
 
-**1. `.env.local`ファイルを作成（Git除外）:**
-```bash
-cp .env.example .env.local
-```
+**1. `.env`ファイルを作成（Git除外）:**
 
-**2. Azure OpenAI情報を設定:**
-```env
-AZURE_OPENAI_API_KEY=your_actual_key_here
-AZURE_OPENAI_API_VERSION=2024-08-01-preview
-AZURE_OPENAI_DEPLOYMENT_NAME=gpt-4o-mini
-AZURE_OPENAI_API_ENDPOINT=https://your-resource-name.openai.azure.com
-```
+**2. Azure OpenAI情報を`.env`に設定:**
 
 **3. Azure OpenAI情報の確認方法:**
 1. [Azure Portal](https://portal.azure.com/) にログイン
@@ -435,9 +425,7 @@ cd jisseki-extract
 # 2. 依存関係をインストール
 npm install
 
-# 3. 環境変数を設定
-cp .env.example .env.local
-# .env.localを編集してAPIキーを設定
+# 3. 環境変数を設定（.envファイルを作成してAPIキーを設定）
 
 # 4. 開発サーバーを起動
 npm run dev
@@ -502,7 +490,7 @@ ${html}`
 | 脅威 | 対策 |
 |------|------|
 | **XSS** | Next.jsのデフォルトエスケープ機能を使用 |
-| **APIキー漏洩** | `.env.local`をGit除外、環境変数で管理 |
+| **APIキー漏洩** | `.env`をGit除外、環境変数で管理 |
 | **SSRF** | URL検証（プロトコル、ドメインチェック） |
 | **DoS** | レート制限（将来実装） |
 
@@ -535,7 +523,7 @@ ${html}`
 
 **Q1. `AZURE_OPENAI_API_KEY` が見つからないエラー**
 ```
-A1. .env.localファイルが正しく配置されているか確認してください。
+A1. .envファイルが正しく配置されているか確認してください。
     ルートディレクトリに配置し、Next.jsを再起動してください。
     4つの環境変数（API_KEY, API_VERSION, DEPLOYMENT_NAME, API_ENDPOINT）が全て設定されているか確認してください。
 ```

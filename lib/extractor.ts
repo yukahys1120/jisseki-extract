@@ -88,6 +88,13 @@ ${html.substring(0, 50000)}`,
     return parsed.clients
   } catch (error) {
     if (error instanceof Error) {
+      // デバッグ用: エラーの詳細をログ出力
+      console.error('[Azure OpenAI Error]', {
+        message: error.message,
+        name: error.name,
+        stack: error.stack,
+      })
+
       // Azure OpenAI APIエラーのハンドリング
       if (error.message.includes('rate limit')) {
         throw new Error('APIのレート制限に達しました。しばらく待ってから再試行してください。')
@@ -95,6 +102,14 @@ ${html.substring(0, 50000)}`,
 
       if (error.message.includes('authentication')) {
         throw new Error('Azure OpenAI APIの認証に失敗しました。APIキーを確認してください。')
+      }
+
+      if (error.message.includes('404') || error.message.includes('Resource not found')) {
+        throw new Error(
+          `404 Resource not found - デプロイメント名またはエンドポイントが正しくありません。` +
+            `\nデプロイメント名: ${deploymentName}` +
+            `\nエンドポイント: ${process.env.AZURE_OPENAI_API_ENDPOINT}`
+        )
       }
 
       throw error

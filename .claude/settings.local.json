@@ -18,7 +18,22 @@
       "Bash(cat:*)",
       "Bash(taskkill:*)",
       "Bash(env)",
-      "Bash(unset:*)"
+      "Bash(unset:*)",
+      "WebFetch(domain:kj-exp.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(git clone:*)",
+      "Bash(if exist .next rmdir /s /q .next)",
+      "Bash(rm:*)",
+      "Bash(nul)",
+      "Bash(netstat:*)",
+      "Bash(node test-debug.js:*)",
+      "mcp__serena__list_memories",
+      "Bash(mv:*)",
+      "Bash(findstr:*)",
+      "Bash(timeout /t 5)",
+      "Bash(ping:*)",
+      "Bash(echo:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []
