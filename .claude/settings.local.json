@@ -33,7 +33,10 @@
       "Bash(timeout /t 5)",
       "Bash(ping:*)",
       "Bash(echo:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "mcp__serena__list_dir",
+      "Bash(node test-csv.js:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []

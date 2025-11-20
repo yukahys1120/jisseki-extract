@@ -3,6 +3,7 @@
  */
 
 import type { ExtractResult } from '@/types'
+import ExportButton from './ExportButton'
 
 interface ResultTableProps {
   result: ExtractResult
@@ -12,10 +13,13 @@ export default function ResultTable({ result }: ResultTableProps) {
   return (
     <div className="mt-8">
       <div className="mb-4 flex items-center justify-between">
-        <h2 className="text-xl font-bold">抽出結果</h2>
-        <p className="text-sm text-gray-600">
-          {result.clients.length}件の取引先を抽出
-        </p>
+        <div>
+          <h2 className="text-xl font-bold">抽出結果</h2>
+          <p className="text-sm text-gray-600">
+            {result.clients.length}件の取引先を抽出
+          </p>
+        </div>
+        <ExportButton result={result} />
       </div>
 
       <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow">

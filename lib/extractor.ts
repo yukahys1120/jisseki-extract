@@ -27,6 +27,13 @@ function validateEnvVariables() {
 export async function extractClients(html: string): Promise<string[]> {
   validateEnvVariables()
 
+  // デバッグ: 環境変数の値を確認
+  console.log('[ENV CHECK]', {
+    endpoint: process.env.AZURE_OPENAI_API_ENDPOINT,
+    deploymentName: process.env.AZURE_OPENAI_DEPLOYMENT_NAME,
+    apiVersion: process.env.AZURE_OPENAI_API_VERSION || '2024-08-01-preview',
+  })
+
   const client = new AzureOpenAI({
     apiKey: process.env.AZURE_OPENAI_API_KEY!,
     endpoint: process.env.AZURE_OPENAI_API_ENDPOINT!,

@@ -12,6 +12,13 @@ import { filterByKeywords, groupByPriority } from '@/lib/keyword-filter'
 import type { ApiResponse, ExtractResult } from '@/types'
 
 export async function POST(request: NextRequest) {
+  // デバッグ: 環境変数を確認
+  console.log('[ROUTE ENV CHECK]', {
+    endpoint: process.env.AZURE_OPENAI_API_ENDPOINT,
+    deploymentName: process.env.AZURE_OPENAI_DEPLOYMENT_NAME,
+    apiVersion: process.env.AZURE_OPENAI_API_VERSION,
+  })
+
   try {
     // リクエストボディの取得
     const body = await request.json()
